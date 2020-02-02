@@ -14,9 +14,9 @@ class ViewController: UIViewController {
     @IBOutlet var answerLabel: UILabel!
     
     let questions: [String] = [
-    "what is 7+7?",
-    "what is the capital of Vermont?",
-    "what is cognac made from?"
+    "What is 7+7?",
+    "What is the capital of Vermont?",
+    "What is cognac made from?"
     ]
     
     let answers: [String]  = [
@@ -26,33 +26,26 @@ class ViewController: UIViewController {
     ]
     
     var currentQuestionIndex: Int = 0
-    
 
     @IBAction func showNextQuestion(_ sender: UIButton) {
-        os_log("showing next question")
+        os_log("Showing next question")
         currentQuestionIndex += 1
         if currentQuestionIndex == questions.count {
             currentQuestionIndex = 0
         }
-        
         let question: String = questions[currentQuestionIndex]
         questionLabel.text = question
         answerLabel.text = "???"
-        
     }
     @IBAction func showAnswer(_ sender: UIButton) {
-        os_log("showing next answer")
+        os_log("Showing next answer")
         let answer: String = answers[currentQuestionIndex]
         answerLabel.text = answer
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         os_log("I just loaded")
         questionLabel.text = questions[currentQuestionIndex]
-        
-        
     }
-
 }
 
